@@ -1,2 +1,2 @@
 # set
-Analyzer for the card game "Set".
+Implementation of the game "Set".
