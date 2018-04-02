@@ -19,11 +19,58 @@ public class StandardGameModel {
         }
     }
 
-    public void addNewCards() {
+    /**
+     *
+     * @return self explanatory.
+     */
+    public int getDeckSize() {
+        return -1;
+    }
+
+    /**
+     *
+     * @return ArrayList of sets in the current cardState.
+     */
+    public ArrayList<Card[]> getSets() {
+        return null;
+    }
+
+    /**
+     * Initialize new Game State (Deck, Empty State).
+     * @param n Amount of attributes.
+     * @param m Number of cards in one Set. (Number of different species).
+     * @param mode 1: Set, 2: SuperSet
+     */
+    public void newGame(int n, int m, int mode) {
 
     }
 
+    /**
+     * Called when user selects three cards with indices in CardState.
+     * @param indices see above.
+     */
     public void cardsSelected(int ... indices) {
+        Card c = cardState.get(indices[0]);
+    }
+
+    /**
+     * New card from deck to cardState.
+     */
+    public void drawCard() {
+
+    }
+
+    /**
+     * Calculate sets in given cardState and put into ArrayList<Card[]>.
+     */
+    public void showSets() {
+
+    }
+
+    /**
+     * End game.
+     */
+    public void endGame() {
 
     }
 
