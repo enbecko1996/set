@@ -1,4 +1,4 @@
 package com.wadi.set.controller;
 
-public interface Controller {
+public interface IController {
 }

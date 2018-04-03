@@ -1,6 +1,6 @@
 package com.wadi.set;
 
-public interface View {
+public interface IView {
 
     void refresh();
 }

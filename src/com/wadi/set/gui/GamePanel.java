@@ -1,24 +1,23 @@
 package com.wadi.set.gui;
 
-import com.wadi.set.View;
-import com.wadi.set.controller.Controller;
-import com.wadi.set.controller.StandardGameController;
-import com.wadi.set.logic.CardState;
-import com.wadi.set.logic.StandardGameModel;
+import com.wadi.set.IView;
+import com.wadi.set.controller.GameController;
+import com.wadi.set.main.CardState;
+import com.wadi.set.logic.GameModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-public class StandardGamePanel extends JPanel implements View {
+public class GamePanel extends JPanel implements IView {
 
-    private StandardGameModel model;
-    private StandardGameController controller;
+    private GameModel model;
+    private GameController controller;
 
-    public StandardGamePanel(StandardGameModel model) {
+    public GamePanel(GameModel model) {
         super(new BorderLayout());
         this.model = model;
-        this.controller = new StandardGameController(this.model, this);
+        this.controller = new GameController(this.model, this);
         this.model.addView(this);
 
         JButton cardButton = new JButton();
@@ -37,13 +36,13 @@ public class StandardGamePanel extends JPanel implements View {
 
         private CardState cardState;
 
-        CardDisplay(CardState cardState, StandardGameController controller) {
+        CardDisplay(CardState cardState, GameController controller) {
 
             this.cardState = cardState;
             this.setLayout(new GridLayout(4, 4));
 
             for (int i = 0; i < this.cardState.size(); i++) {
-                CardButton btn = new CardButton(Arrays.toString(this.cardState.get(i).getData()), i);
+                CardButton btn = new CardButton(Arrays.toString(this.cardState.get(i).getAttributes()), i);
                 btn.setPreferredSize(new Dimension(100, 150));
                 btn.addActionListener(controller);
                 this.add(btn);

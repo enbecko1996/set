@@ -1,4 +1,4 @@
-package com.wadi.set.logic;
+package com.wadi.set.main;
 
 import com.wadi.set.exceptions.WrongCardsAddedException;
 
