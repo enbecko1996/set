@@ -8,6 +8,7 @@ public class Card {
 
     final IAttributeEnum[] attributes;
     private final int[] attributeInt;
+    private boolean isSelected;
 
     public Card(IAttributeEnum ... attributes) {
         this.attributes = attributes;
@@ -15,6 +16,15 @@ public class Card {
         for (int i = 0; i < this.attributes.length; i++) {
             this.attributeInt[i] = this.attributes[i].getIndex();
         }
+    }
+
+    public boolean toggleSelected() {
+        this.isSelected = !this.isSelected;
+        return this.isSelected;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
     }
 
     public int[] getAttributeInt() {
@@ -31,5 +41,17 @@ public class Card {
 
     public String toString() {
         return Arrays.toString(this.attributes);
+    }
+
+    public boolean equals(Card c) {
+        int[] otherInt = c.getAttributeInt();
+        if (otherInt.length == this.attributeInt.length) {
+            for (int i = 0; i < otherInt.length; i++) {
+                if (otherInt[i] != this.attributeInt[i])
+                    return false;
+            }
+            return true;
+        }
+        return false;
     }
 }

@@ -1,4 +1,4 @@
-package com.wadi.set;
+package com.wadi.set.gui;
 
 public interface IView {
 

@@ -11,6 +11,10 @@ public class CardState extends ArrayList<Card> {
 
     }
 
+    public CardState(CardState other) {
+        super(other);
+    }
+
     public void addCards(Card ... cards) throws WrongCardsAddedException {
         if (cards.length == 3) {
             Collections.addAll(this, cards);

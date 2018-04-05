@@ -1,6 +1,7 @@
 package com.wadi.set.controller;
 
 import com.wadi.set.gui.GamePanel;
+import com.wadi.set.gui.JCardButton;
 import com.wadi.set.logic.GameModel;
 
 import java.awt.event.ActionEvent;
@@ -19,9 +20,13 @@ public class GameController implements ActionListener, IController {
     @Override
     public void actionPerformed(ActionEvent e) {
          Object src = e.getSource();
-         if (src instanceof GamePanel.CardDisplay.CardButton) {
-             GamePanel.CardDisplay.CardButton btn = (GamePanel.CardDisplay.CardButton) src;
-             this.model.cardsSelected(btn.getCardStateIndex());
+         if (src instanceof JCardButton) {
+             JCardButton btn = (JCardButton) src;
+             this.model.cardSelected(btn.getDisplayCard());
+         } else if (src == this.view.cAutoDraw) {
+             this.model.toggleAutoDraw();
+         } else if (src == this.view.bFindSets) {
+             this.model.findSets();
          }
     }
 }
